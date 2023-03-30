@@ -1,22 +1,10 @@
-from time import sleep
-import mouse
-import keyboard
+import pyautogui
+from keyboard import is_pressed
 
-class Stopper:
-    def __init__(self):
-        self.a = 0
-    
-    def addA(self):
-        self.a += 1
-        return self.a
+pyautogui.PAUSE = 0.0001
+while True:
+    pyautogui.click()
+    if is_pressed('z'):
+        break
 
-
-a = Stopper()
-
-keyboard.add_hotkey('ctrl+alt+shift+s', a.addA)
-sleep(2)
-
-while a.a == 0:
-    mouse.click()
-    
-print('break')
+print('LOOP BROKEN')
